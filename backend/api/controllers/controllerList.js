@@ -13,10 +13,9 @@ exports.list_all_O3 = (req, res) => {
 };
 
 exports.getStation = (request, response) => {
-    summary.find({ "Station code":request.params.Stationcode}, function (error, getStation) {
+    summary.find({ "Station code":request.params.Stationcode} ,function (error, getStation) {
         if (error)
             response.send(error);
         response.json(getStation);
     }).limit(10);
 };
-
