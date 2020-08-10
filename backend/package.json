@@ -1,0 +1,30 @@
+{
+  "name": "myapi",
+  "version": "1.0.0",
+  "description": "\"RESTful myAPI\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"echo \\\"ERROR: no test specified\\\" && exit 1\" ",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VasilikiPapageorgiou/hello_word.git"
+  },
+  "keywords": [
+    "API"
+  ],
+  "author": "VasilikiPapageorgiou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VasilikiPapageorgiou/hello_word/issues"
+  },
+  "homepage": "https://github.com/VasilikiPapageorgiou/hello_word#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.26"
+  }
+}
