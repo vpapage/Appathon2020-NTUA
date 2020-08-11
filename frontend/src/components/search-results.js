@@ -10,7 +10,6 @@ const SearchResults = (props) => {
         console.log('results changed!', props.results);
         setResults(props.results);
         setConpound(props.compound);
-        // console.log('my compound', props.compound);
         if (!!props.results[0])  setAddress(props.results[0].Address);
     }, [props.results]);
 
