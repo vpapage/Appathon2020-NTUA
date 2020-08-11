@@ -49,7 +49,7 @@ function MainForm() {
                 <button className="submit-button" type="submit">Submit</button>
             </form>
 
-            { (searchResults) && <SearchResults results={searchResults} /> }
+            { searchResults && <SearchResults results={searchResults} compound={itemId} /> }
         </>
 
     );

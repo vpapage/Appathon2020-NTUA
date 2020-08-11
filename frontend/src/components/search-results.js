@@ -4,32 +4,32 @@ const SearchResults = (props) => {
 
     const [results, setResults] = useState();
     const [address, setAddress] = useState(); 
-    // todo const [compound, setConpound] = useState();
+    const [compound, setConpound] = useState();
 
     useEffect(() => {
         console.log('results changed!', props.results);
         setResults(props.results);
+        setConpound(props.compound);
+        // console.log('my compound', props.compound);
         if (!!props.results[0])  setAddress(props.results[0].Address);
     }, [props.results]);
 
     return (
         <>
             <p> Ηere come the results </p>
-            {address && <p>{address}</p>}
+            {address && <p>The address of the Station{address}</p>}
             <table>
                 <thead>
                     <tr>
                         <th>Measurement Date</th>
-                        {/* <th>Address</th> */}
-                        <th>CO</th>
+                        <th> {compound} </th>
                     </tr>
                 </thead>
                 <tbody>
                     {results && results.map((element, index) =>
                         <tr key={'result_' + index}>
-                            <td>{element['Station code']}</td>
-                            {/* <td>{element.Address}</td> */}
-                            <td>{element.CO}</td>
+                            <td>{element['Measurement date']}</td>
+                            <td>{element[compound]}</td>
                         </tr>
                     )}
                 </tbody>

@@ -6,7 +6,7 @@ function App() {
 
     return (
         <div>
-            <h1> Air Pollution in Seul </h1>
+            <h1> Air Pollution in Seoul </h1>
             <h3> 
                 This web application deals with air pollution measurement information <br/> 
                 in Seoul, South Korea. 
