@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var measurementStationInfoSchema = new Schema ({
     Stationcode: String,
-    Stationnamedistrict: String,
+    'Station name (district)': String,
     Address: String,
     Latitude: String,
     Longitude: String

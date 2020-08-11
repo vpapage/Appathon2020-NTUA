@@ -6,7 +6,7 @@ mongoose = require('mongoose'),
 
     summary = require('./api/models/summaryModel'), //created model loading here 
     measurementStationInfo = require('./api/models/Measurement_station_info_model'), 
-    measurementItemInfo = require('./api/models/Measurement_item_info_model'),
+    measurementItemInfo = require('./api/models/Measurement_item_info_model');
     bodyParser = require('body-parser');
 
 // mongoose instance connection url connection

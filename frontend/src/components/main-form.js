@@ -7,9 +7,6 @@ function MainForm() {
     const [itemId, setItemId] = useState('');
     const [searchResults, setSearchResults] = useState([]);
 
-    useEffect( () => {
-        getAllStations.then( res => console.log('getAllStations', res))
-    });
 
 
     const getAllStations = async () => {
@@ -21,18 +18,24 @@ function MainForm() {
 
     const getStation = async () => {
         const response = await fetch(
-            `http://localhost:3001/getStation/${stationId}`
+            `http://localhost:3001/getStationMeasurements/${stationId}`
         );
         return await response.json();
     };
 
     const getSearch = async event => {
+
         event.preventDefault();
+
         console.log('Get Search fired for input:', stationId, itemId);
-        return await getStation().then( data => {
+        return await getStation()
+        .then( data => {
             setSearchResults(data);
             console.log('get search data' , data);
-        }).catch( error => console.error(error) );
+        })
+        .then( () => getAllStations() )
+        .then( data => console.log('getAllStations', data))
+        .catch( error => console.error(error) );
     }
 
 
