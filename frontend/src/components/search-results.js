@@ -6,40 +6,36 @@ const SearchResults = (props) => {
     const [resultsTable, setResultsTable] = useState('lala');
 
     useEffect(() => {
-        console.log('results', results, results.results?.length);
-    }, [results]);
+        setResults(props.results);
+        console.log('results changed!', results);
+        if (results.length > 0) createResultsTable();
+    }, [props.results]);
 
 
+    const createResultsTable = () => {
+        console.log(results);
+        const updatedTable = (
+            <table>
+                <thead>
+                    <tr>
+                        <th>Address</th>
+                        <th>CO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {results.map(element =>
 
-    const updateResults = (results) => {
-        // todo setResultsTable
-
-        if (results.length>0) {
-            const updatedTable = (
-                <table>
-                    <thead>
                         <tr>
-                            <th>Address</th>
-                            <th>CO</th>                        
+                            <td>{element.Address}</td>
+                            <td>{element.CO}</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        
-                        <tr>
-                            <td>{results[0].Address}</td>
-                            <td>{results[0].CO}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            );
-            setResultsTable(updatedTable);
-            return;
-        }
-        setResultsTable('lala');
+
+                    )}
+                </tbody>
+            </table>
+        );
+        setResultsTable(updatedTable);
     }
-
-
-
     return (
         <>
             <p> Ηere come the results </p>
@@ -50,8 +46,6 @@ const SearchResults = (props) => {
 }
 
 export default SearchResults;
-
-
 
 // props = [
 //     Address: "19, Jong-ro 35ga-gil, Jongno-gu, Seoul, Republic of Korea"
