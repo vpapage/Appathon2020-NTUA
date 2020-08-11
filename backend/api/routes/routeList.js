@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = function(app) {
     var controllerList = require('../controllers/controllerList');
     
@@ -6,8 +7,12 @@ module.exports = function(app) {
     app.route('/O3')
     .get(controllerList.list_all_O3);
 
-    app.route('/getStation/:Stationcode')
-    .get(controllerList.getStation);
+    app.route('//:Stationcode')
+    .get(controllerList.getStationMeasurements);
 
+    app.route('/getAllStations')
+    .get(controllerList.getAllStations);
 
+    app.route('/getAllItems')
+    .get(controllerList.getAllItems);
 };

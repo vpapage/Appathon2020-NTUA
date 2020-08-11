@@ -7,9 +7,19 @@ function MainForm() {
     const [itemId, setItemId] = useState('');
     const [searchResults, setSearchResults] = useState([]);
 
+    useEffect( () => {
+        getAllStations.then( res => console.log('getAllStations', res))
+    });
 
 
-    const getRequest = async () => {
+    const getAllStations = async () => {
+        const response = await fetch(
+            `http://localhost:3001/getAllStations`
+        );
+        return await response.json();
+    }
+
+    const getStation = async () => {
         const response = await fetch(
             `http://localhost:3001/getStation/${stationId}`
         );
@@ -19,7 +29,7 @@ function MainForm() {
     const getSearch = async event => {
         event.preventDefault();
         console.log('Get Search fired for input:', stationId, itemId);
-        return await getRequest().then( data => {
+        return await getStation().then( data => {
             setSearchResults(data);
             console.log('get search data' , data);
         }).catch( error => console.error(error) );
