@@ -13,15 +13,16 @@ function MainForm() {
         const response = await fetch(
             `http://localhost:3001/getStation/${stationId}`
         );
-        const data = await response.json();
-        setSearchResults(data)
+        return await response.json();
     };
 
-    const getSearch = event => {
+    const getSearch = async event => {
         event.preventDefault();
         console.log('Get Search fired for input:', stationId, itemId);
-        getRequest();
-        return;
+        return await getRequest().then( data => {
+            setSearchResults(data);
+            console.log('get search data' , data);
+        }).catch( error => console.error(error) );
     }
 
 
@@ -48,8 +49,7 @@ function MainForm() {
                 <button className="submit-button" type="submit">Submit</button>
             </form>
 
-
-            <SearchResults results={searchResults} /> 
+            { (searchResults) && <SearchResults results={searchResults} /> }
         </>
 
     );

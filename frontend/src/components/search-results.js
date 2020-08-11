@@ -2,44 +2,38 @@ import React, { useState, useEffect } from 'react';
 
 const SearchResults = (props) => {
 
-    const [results, setResults] = useState(props.results);
-    const [resultsTable, setResultsTable] = useState('lala');
+    const [results, setResults] = useState();
+    const [address, setAddress] = useState(); 
+    // todo const [compound, setConpound] = useState();
 
     useEffect(() => {
+        console.log('results changed!', props.results);
         setResults(props.results);
-        console.log('results changed!', results);
-        if (results.length > 0) createResultsTable();
+        if (!!props.results[0])  setAddress(props.results[0].Address);
     }, [props.results]);
 
-
-    const createResultsTable = () => {
-        console.log(results);
-        const updatedTable = (
+    return (
+        <>
+            <p> Ηere come the results </p>
+            {address && <p>{address}</p>}
             <table>
                 <thead>
                     <tr>
-                        <th>Address</th>
+                        <th>Measurement Date</th>
+                        {/* <th>Address</th> */}
                         <th>CO</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {results.map(element =>
-
-                        <tr>
-                            <td>{element.Address}</td>
+                    {results && results.map((element, index) =>
+                        <tr key={'result_' + index}>
+                            <td>{element['Station code']}</td>
+                            {/* <td>{element.Address}</td> */}
                             <td>{element.CO}</td>
                         </tr>
-
                     )}
                 </tbody>
             </table>
-        );
-        setResultsTable(updatedTable);
-    }
-    return (
-        <>
-            <p> Ηere come the results </p>
-            {resultsTable}
         </>
     );
 
