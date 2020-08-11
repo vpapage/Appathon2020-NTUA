@@ -2,39 +2,47 @@ import React, { useState, useEffect } from 'react';
 
 const SearchResults = (props) => {
 
-    const [resultsTable, setResultsTable] = useState(null);
+    const [results, setResults] = useState(props.results);
+    const [resultsTable, setResultsTable] = useState('lala');
 
     useEffect(() => {
-        console.log('results',props);
+        console.log('results', results, results.results?.length);
+    }, [results]);
 
-        if (props.results.length>0) {
-            // const updatedTable = (
-            //     <table>
-            //         <thead>
-            //             <tr>
-            //                 <th>Address</th>
-            //                 <th>CO</th>                        
-            //             </tr>
-            //         </thead>
-            //         <tbody>
-            //             <tr>
-            //                 <td>{results[0].Address}</td>
-            //                 <td>{results[0].CO}</td>
-            //             </tr>
-            //         </tbody>
-            //     </table>
-            // );
-            setResultsTable( props.results[0].Address );
+
+
+    const updateResults = (results) => {
+        // todo setResultsTable
+
+        if (results.length>0) {
+            const updatedTable = (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Address</th>
+                            <th>CO</th>                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>{results[0].Address}</td>
+                            <td>{results[0].CO}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            );
+            setResultsTable(updatedTable);
             return;
         }
         setResultsTable('lala');
-        
-    });
+    }
+
 
 
     return (
         <>
-            <p> here come the results </p>
+            <p> Ηere come the results </p>
             {resultsTable}
         </>
     );

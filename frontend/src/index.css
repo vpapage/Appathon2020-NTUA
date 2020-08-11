@@ -12,6 +12,32 @@ code {
     monospace;
 }
 
+/* App.js */
+
+body {
+  /*background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);*/
+  background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%); 
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+h3 {
+  color: bisque;
+  font-family: courier;
+  font-size: 120%;
+  text-align: center;
+}
+p {
+  /* font-family: verdana; */
+  color: white;
+  font-family: courier;
+  font-size: 100%;
+}
+
+
 /* MainForm css */
 
 .search-form {
