@@ -17,7 +17,7 @@ exports.getStationMeasurements = (request, response) => {
 
 
 exports.getAllStations = (req, res) => {
-    measurementStationInfo.find({"Station code": "101"}, function (err, allStations) {
+    measurementStationInfo.find({}, function (err, allStations) {
         if (err)
             res.send(err);
         res.json(allStations);
