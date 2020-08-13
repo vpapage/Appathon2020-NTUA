@@ -4,7 +4,6 @@ import { Line } from 'react-chartjs-2';
 const SearchResults = (props) => {
 
     const [results, setResults] = useState();
-    const [address, setAddress] = useState();
     const [compound, setConpound] = useState();
     const [chartData, setChartData] = useState();
 
@@ -14,7 +13,6 @@ const SearchResults = (props) => {
         setConpound(props.compound);
 
         if (props.results) {
-            setAddress(props.results[0].Address);
 
             const labels = props.results.map(el => el['MeasurementDate']);
             const datasets = [
@@ -29,7 +27,6 @@ const SearchResults = (props) => {
                     data: props.results.map(el => el['NO2']),
                 }
             ];
-            
             setChartData({
                 labels: labels,
                 datasets: datasets,
@@ -42,11 +39,10 @@ const SearchResults = (props) => {
     return (
         <>
             <p> Ηere come the results </p>
-            {address && <p>The address of the Station{address}</p>}
             {chartData && <Line
                 data={chartData}
-                width="600"
-                height="250"
+                width={600}
+                height={250}
                 options={{ showLines: true }}
             />}
             <table>
@@ -59,7 +55,7 @@ const SearchResults = (props) => {
                 <tbody>
                     {results && results.map((element, index) =>
                         <tr key={'result_' + index}>
-                            <td>{element['Measurement date']}</td>
+                            <td>{element['MeasurementDate']}</td>
                             <td>{element[compound]}</td>
                         </tr>
                     )}

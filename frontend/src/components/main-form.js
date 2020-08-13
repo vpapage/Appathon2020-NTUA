@@ -6,14 +6,18 @@ function MainForm() {
     const [stationId, setStationId] = useState('');
     const [itemId, setItemId] = useState('');
     const [searchResults, setSearchResults] = useState();
+    const [allStations, setAllStations] = useState();
 
 
-    const getAllStations = async () => {
-        const response = await fetch(
+    useEffect(() => {
+        fetch(
             `http://localhost:3001/getAllStations`
-        );
-        return await response.json();
-    }
+        ).then(res => res.json()).then(data => {
+            setAllStations(data);
+            console.log(allStations, data);
+        });
+    }, []);
+
 
     const getStation = async () => {
         const response = await fetch(
@@ -22,35 +26,35 @@ function MainForm() {
         return await response.json();
     };
 
-    const getSearch = async event => {
-
+    const submitSearchForm = async event => {
         event.preventDefault();
 
         console.log('Get Search fired for input:', stationId, itemId);
         return await getStation()
-        .then( data => {
-            setSearchResults(data);
-            console.log('get search data' , data);
-        })
-        .then( () => getAllStations() )
-        .then( data => console.log('getAllStations', data))
-        .catch( error => console.error(error) );
+            .then(data => {
+                setSearchResults(data);
+                console.log('get search data', data);
+            })
+            .catch(error => console.error(error));
     }
-
-
 
     return (
         <>
-            <form onSubmit={getSearch} className="search-form" >
+            <form onSubmit={submitSearchForm} className="search-form" >
 
                 <div className="form-group">
-                    <label htmlFor="station-input">Station Number</label>
-                    <input
+                    <label htmlFor="station-input">Station</label>
+                    <select
                         className="form-input" id="station-input" type="text"
-                        value={stationId}
-                        onChange={event => { setStationId(event.target.value) }} />
+                        name={stationId}
+                        onChange={event => { setStationId(event.target.value)} }>
+                        <option value="000">Select Station</option>
+                        {allStations &&
+                            allStations.map(station =>
+                                <option key={station.StationCode} value={station.StationCode}>{station.StationDistrict} ({station.StationCode})</option>)
+                        }
+                    </select>
                 </div>
-
                 <div className="form-group">
                     <label htmlFor="item-input">Compound</label>
                     <input className="form-input" id="item-input" type="text"
@@ -61,7 +65,7 @@ function MainForm() {
                 <button className="submit-button" type="submit">Submit</button>
             </form>
 
-            { searchResults && <SearchResults results={searchResults} compound={itemId} /> }
+            {searchResults && <SearchResults results={searchResults} compound={itemId} />}
         </>
 
     );

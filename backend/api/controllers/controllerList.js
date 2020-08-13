@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
 
 
 exports.getStationMeasurements = (request, response) => {
-    measurementResults.find({ "Station code": request.params.Stationcode }, function (error, getStation) {
+    measurementResults.find({ "Station code": request.params.Stationcode },"MeasurementDate SO2 NO2 O3 CO PM10", function (error, getStation) {
         if (error)
             response.send(error);
         response.json(getStation);
@@ -17,7 +17,7 @@ exports.getStationMeasurements = (request, response) => {
 
 
 exports.getAllStations = (req, res) => {
-    stationInfo.find({}, function (err, allStations) {
+    stationInfo.find({}, "StationCode StationDistrict", function (err, allStations) {
         if (err)
             res.send(err);
         res.json(allStations);
