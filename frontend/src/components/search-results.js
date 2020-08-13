@@ -13,24 +13,42 @@ const SearchResults = (props) => {
         setConpound(props.compound);
 
         if (props.results) {
-
             const labels = props.results.map(el => el['MeasurementDate']);
+            
             const datasets = [
                 {
                     label: 'CO',
-                    data: props.results.map(el => el['CO'])
+                    data: props.results.map(el => el['CO']),
+                    borderColor: 'blue',
+                    fill: false
                 }, {
                     label: 'O3',
                     data: props.results.map(el => el['O3']),
+                    borderColor: 'purple',
+                    fill: false
                 }, {
                     label: 'NO2',
                     data: props.results.map(el => el['NO2']),
+                    borderColor: 'green',
+                    fill: false
+                }, 
+                {
+                    label: 'SO2',
+                    data: props.results.map(el => el['SO2']),
+                    borderColor: 'yellow',
+                    fill: false
+                }, {
+                    label: 'PM10',
+                    data: props.results.map(el => el['PM10']),
+                    borderColor: 'red',
+                    fill: false
                 }
             ];
+           
             setChartData({
                 labels: labels,
-                datasets: datasets,
-            });
+                datasets: datasets
+            })
         };
 
     }, [props.results]);
@@ -68,17 +86,26 @@ const SearchResults = (props) => {
 
 export default SearchResults;
 
-// props = [
-//     Address: "19, Jong-ro 35ga-gil, Jongno-gu, Seoul, Republic of Korea"
-//     CO: "1.2"
-//     Latitude: "37.5720164"
-//     Longitude: "127.0050075"
-//     Measurement date: "2017-01-01 00:00"
-//     NO2: "0.059"
-//     O3: "0.002"
-//     PM2: (6) [null, null, null, null, null, "57.0"]
-//     PM10: "73.0"
-//     SO2: "0.004"
-//     Station code: "101"
-//     _id: "5f202c32dac89224b4c0c789"
-// }]
+
+
+
+
+// const resultData = props.results.map( el => { 
+//     date = el.MeasurementDate, 
+//     compounds = {
+//         CO: el.CO,
+//         NO2: el.NO2,
+//         O3: el.O3,
+//         SO2: el.SO2,
+//         PM10: el.PM10
+//     }} 
+// );
+// const allCompounds = Object.keys(resultData[0]);
+
+// props.results.forEach( (el, index) => {
+//     datasets[index] = {
+//         label: allCompounds[index],
+//         data: datasets[index].push(el[allCompounds[index]])
+//     }
+// });
+// console.log('datasets' , datasets);
