@@ -12,43 +12,43 @@ const SearchResults = (props) => {
         console.log('results changed!', props.results);
         setResults(props.results);
         setConpound(props.compound);
-        if (!!props.results[0]) {
+
+        if (props.results) {
             setAddress(props.results[0].Address);
-            parseData();
-        }
+
+            const labels = props.results.map(el => el['MeasurementDate']);
+            const datasets = [
+                {
+                    label: 'CO',
+                    data: props.results.map(el => el['CO'])
+                }, {
+                    label: 'O3',
+                    data: props.results.map(el => el['O3']),
+                }, {
+                    label: 'NO2',
+                    data: props.results.map(el => el['NO2']),
+                }
+            ];
+            
+            setChartData({
+                labels: labels,
+                datasets: datasets,
+            });
+        };
 
     }, [props.results]);
 
-    const parseData = () => {
-        const labels = results.map(el => el['Measurement date']);
-        const datasets = [
-            {
-                label: 'CO',
-                data: results.map(el => el['CO'])
-            }, {
-                label: 'O3',
-                data: results.map(el => el['O3']),
-            }, {
-                label: 'NO2',
-                data: results.map(el => el['NO2']),
-            }
-        ];
-        setChartData({
-            labels: labels,
-            datasets: datasets,
-        });
-    }
 
     return (
         <>
             <p> Ηere come the results </p>
             {address && <p>The address of the Station{address}</p>}
-            <Line
+            {chartData && <Line
                 data={chartData}
                 width="600"
                 height="250"
                 options={{ showLines: true }}
-            />
+            />}
             <table>
                 <thead>
                     <tr>

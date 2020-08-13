@@ -4,14 +4,14 @@ var express = require('express'),
 
 mongoose = require('mongoose'),
 
-    summary = require('./api/models/summaryModel'), //created model loading here 
-    measurementStationInfo = require('./api/models/Measurement_station_info_model'), 
-    measurementItemInfo = require('./api/models/Measurement_item_info_model');
+    measurementResults  = require('./api/models/MeasurementResultsModel'), //created model loading here 
+    stationInfo = require('./api/models/StationInfoModel'), 
+    compoundInfo = require('./api/models/CompoundInfoModel');
     bodyParser = require('body-parser');
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://127.0.0.1:27017/AirPollutionSeoul', {
+mongoose.connect('mongodb://127.0.0.1:27017/AppathonProject', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true

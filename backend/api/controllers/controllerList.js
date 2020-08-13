@@ -1,14 +1,14 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    summary = mongoose.model('summary'),
-    measurementStationInfo = mongoose.model('measurementStationInfo'),
-    measurementItemInfo = mongoose.model('measurementItemInfo');
+    measurementResults = mongoose.model('measurementResults'),
+    stationInfo = mongoose.model('stationInfo'),
+    compoundInfo = mongoose.model('compoundInfo');
 
 
 
 exports.getStationMeasurements = (request, response) => {
-    summary.find({ "Station code": request.params.Stationcode }, function (error, getStation) {
+    measurementResults.find({ "Station code": request.params.Stationcode }, function (error, getStation) {
         if (error)
             response.send(error);
         response.json(getStation);
@@ -17,7 +17,7 @@ exports.getStationMeasurements = (request, response) => {
 
 
 exports.getAllStations = (req, res) => {
-    measurementStationInfo.find({}, function (err, allStations) {
+    stationInfo.find({}, function (err, allStations) {
         if (err)
             res.send(err);
         res.json(allStations);
@@ -25,7 +25,7 @@ exports.getAllStations = (req, res) => {
 };
 
 exports.getAllItems = (req, res) => {
-    measurementItemInfo.find({}, function (err, getAllItems) {
+    compoundInfo.find({}, function (err, getAllItems) {
         if (err)
             res.send(err);
         res.json(getAllItems);

@@ -5,8 +5,7 @@ function MainForm() {
 
     const [stationId, setStationId] = useState('');
     const [itemId, setItemId] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
-
+    const [searchResults, setSearchResults] = useState();
 
 
     const getAllStations = async () => {
