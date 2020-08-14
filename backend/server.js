@@ -29,7 +29,10 @@ app.use(function (req, res, next) {
 var routes = require('./api/routes/routeList'); //importing route
 routes(app); //register the routes
 
-
+app.use(function(req, res) {
+    res.status(404).send({url: req.originalUrl + ' not found'})
+  });
+  
 app.listen(port);
 
 console.log('My API server started on: ' + port);
