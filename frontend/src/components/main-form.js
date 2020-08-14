@@ -8,7 +8,7 @@ function MainForm() {
     const [searchResults, setSearchResults] = useState();
     const [allStations, setAllStations] = useState();
     const [allItems, setAllItems] = useState();
-    const [monthId, setMonthId] = useState();
+    // const [monthId, setMonthId] = useState();
 
 
     useEffect(() => {
@@ -75,7 +75,7 @@ function MainForm() {
                         }
                     </select>
                 </div>
-                {/*  */}
+                {/*  
                 <div className="form-group">
                     <label htmlFor="month-input">Month</label>
                     <select
@@ -89,7 +89,7 @@ function MainForm() {
                         }
                     </select>
                 </div>
-                {/*  */}
+                 */}
 
 
                 <button className="submit-button" type="submit">Submit</button>
