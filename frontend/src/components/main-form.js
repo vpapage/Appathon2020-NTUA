@@ -3,8 +3,8 @@ import SearchResults from './search-results';
 
 function MainForm() {
 
-    const [stationId, setStationId] = useState('');
-    const [itemId, setItemId] = useState('');
+    const [stationId, setStationId] = useState();
+    const [itemId, setItemId] = useState();
     const [searchResults, setSearchResults] = useState();
     const [allStations, setAllStations] = useState();
 
@@ -12,10 +12,7 @@ function MainForm() {
     useEffect(() => {
         fetch(
             `http://localhost:3001/getAllStations`
-        ).then(res => res.json()).then(data => {
-            setAllStations(data);
-            console.log(allStations, data);
-        });
+        ).then(res => res.json()).then(data => setAllStations(data) );
     }, []);
 
 
@@ -29,12 +26,8 @@ function MainForm() {
     const submitSearchForm = async event => {
         event.preventDefault();
 
-        console.log('Get Search fired for input:', stationId, itemId);
         return await getStation()
-            .then(data => {
-                setSearchResults(data);
-                console.log('get search data', data);
-            })
+            .then(data => setSearchResults(data) )
             .catch(error => console.error(error));
     }
 
@@ -65,7 +58,7 @@ function MainForm() {
                 <button className="submit-button" type="submit">Submit</button>
             </form>
 
-            {searchResults && <SearchResults results={searchResults} compound={itemId} />}
+            {(searchResults && itemId) && <SearchResults results={searchResults} compound={itemId} />}
         </>
 
     );
