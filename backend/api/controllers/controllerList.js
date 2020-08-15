@@ -7,14 +7,15 @@ var mongoose = require('mongoose'),
 
 
 
-exports.getStationMeasurements = (request, response) => {
-    measurementResults.find({ "Station code": request.params.Stationcode },"MeasurementDate SO2 NO2 O3 CO PM10", function (error, getStation) {
-        if (error)
-            response.send(error);
-        response.json(getStation);
-    }).limit(10);
-};
-
+    exports.getStationMeasurements = (request, response) => {
+        measurementResults.find({ "Station code": request.params.Stationcode },"MeasurementDate SO2 NO2 O3 CO PM10", function (error, getStation) {
+            if (error)
+                response.send(error);
+            response.json(getStation);
+        }).limit(10);
+    };
+    
+    
 
 exports.getAllStations = (req, res) => {
     stationInfo.find({}, "StationCode StationDistrict", function (err, allStations) {
@@ -31,3 +32,4 @@ exports.getAllItems = (req, res) => {
         res.json(getAllItems);
     });
 };
+

@@ -13,4 +13,9 @@ module.exports = function(app) {
 
     app.route('/getAllItems')
     .get(controllerList.getAllItems);
+
+
+    app.route('/try')
+    .get(controllerList.getAllItems);
+
 };
