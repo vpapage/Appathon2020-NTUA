@@ -33,3 +33,10 @@ exports.getAllItems = (req, res) => {
     });
 };
 
+exports.getAnything = (req, res) => {
+    measurementResults.find({ MeasurementDate: req.params.month,"Station code": req.params.Stationcode},"MeasurementDate SO2 NO2 O3 CO PM10" , function (err, allStations) {
+        if (err)
+            res.send(err);
+        res.json(allStations);
+    }).limit(10);
+};
