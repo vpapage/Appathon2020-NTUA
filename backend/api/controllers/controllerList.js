@@ -34,9 +34,13 @@ exports.getAllItems = (req, res) => {
 };
 
 exports.getAnything = (req, res) => {
-    measurementResults.find({ MeasurementDate: req.params.month,"Station code": req.params.Stationcode},"MeasurementDate SO2 NO2 O3 CO PM10" , function (err, allStations) {
+    measurementResults.find({ MeasurementDate: { $regex: ".*"+req.params.month+".*", $options: 'm'} ,"Station code": req.params.Stationcode},"MeasurementDate SO2 NO2 O3 CO PM10" , function (err, allStations) {
         if (err)
             res.send(err);
         res.json(allStations);
-    }).limit(10);
+    });
 };
+
+
+    // Compass query: 
+    // { MeasurementDate: /.*2017-09.*/, StationCode: "106"}
