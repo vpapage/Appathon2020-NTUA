@@ -29,7 +29,7 @@ function MainForm() {
 
     const getStation = async () => {
         const response = await fetch(
-            `http://localhost:3001/getStationMeasurements/${stationId}`
+            `http://localhost:3001/getStationMeasurements/${stationId}/${month}`
         );
         return await response.json();
     };
@@ -72,7 +72,6 @@ function MainForm() {
                         <option value="000">Select Item</option>
                         {allItems &&
                             allItems.map(item => {
-                                if (item.ItemName != 'PM2.5')
                                 return (<option key={item.ItemCode} value={item.ItemName}>{item.ItemName}</option>);
                             })
                         }

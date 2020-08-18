@@ -2,8 +2,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var measurementResultsSchema = new Schema ({
-  
+var resultsSchema = new Schema ({
+
     MeasurementDate: String,
     StationCode: String,
     Address: String,
@@ -15,6 +15,7 @@ var measurementResultsSchema = new Schema ({
     CO: String,
     PM10: String,
     PM2: String
+
 });
 
-module.exports = mongoose.model('measurementResults', measurementResultsSchema, 'MeasurementResults');
+module.exports = mongoose.model('Results', resultsSchema, 'MeasurementResults');

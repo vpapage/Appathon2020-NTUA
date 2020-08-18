@@ -5,7 +5,7 @@ module.exports = function(app) {
     
     // controllerList Routes
 
-    app.route('/getStationMeasurements/:StationCode')
+    app.route('/getStationMeasurements/:StationCode/:month')
     .get(controllerList.getStationMeasurements);
 
     app.route('/getAllStations')

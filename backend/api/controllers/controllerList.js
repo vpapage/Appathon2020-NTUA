@@ -8,11 +8,15 @@ var mongoose = require('mongoose'),
 
 
     exports.getStationMeasurements = (request, response) => {
-        measurementResults.find({ "Station code": request.params.Stationcode },"MeasurementDate SO2 NO2 O3 CO PM10", function (error, getStation) {
+        measurementResults.find({ 
+                StationCode: request.params.StationCode,
+                MeasurementDate: { $regex: `.*${request.params.month}.*13:00`, $options: 'm'} 
+            },"MeasurementDate StationCode SO2 NO2 O3 CO PM10 PM2", 
+            function (error, getStation) {
             if (error)
                 response.send(error);
             response.json(getStation);
-        }).limit(720);
+        }).sort({'MeasurementDate': 1});
     };
     
     
