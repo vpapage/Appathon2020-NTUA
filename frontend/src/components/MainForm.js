@@ -44,6 +44,7 @@ function MainForm() {
 
     return (
         <>
+            <h2>Insert filters</h2>
             <form onSubmit={submitSearchForm} className="search-form" >
 
                 <div className="form-group">
@@ -85,12 +86,11 @@ function MainForm() {
                             console.log(event.target.value);
                         }}/>
                 </div>
-
-
                 <button className="submit-button" type="submit">Submit</button>
             </form>
 
-            {(searchResults && itemId) && <SearchResults results={searchResults} compound={itemId} />}
+            {(searchResults && itemId) && 
+                <SearchResults results={searchResults} compound={itemId} />}
         </>
 
     );

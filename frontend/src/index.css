@@ -15,11 +15,11 @@ code {
 /* App.js */
 
 body {
-  /*background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);*/
-  /* background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);  */
+  background-color: #dcf6f9;
+  color: #181f25;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
 }
 
@@ -39,12 +39,14 @@ p {
 /* MainForm css */
 
 .search-form {
-  width: 200px;
   margin: 16px auto;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
 }
 
 .form-group {
-  /* color: rgba(56, 247, 18, 0.1); */
+  align-self: baseline;
 }
 
 .form-input {
@@ -52,11 +54,14 @@ p {
   margin-bottom: 12px;
   border: 1px solid lightgray;
   padding: 6px;
+
 }
 
 .submit-button {
-  background-color: plum;
+  background-color: #995d81;
   color: white;
   border: none;
   padding: 6px 12px;
+  width: 180px;
+  font-size: 20px;
 }

@@ -19,32 +19,37 @@ const SearchResults = (props) => {
             {
                 label: 'CO',
                 data: rawData.map(el => el['CO']),
-                borderColor: 'blue',
+                borderColor: '#995d81',
+                pointBackgroundColor: '#995d81',
                 fill: false,
                 hidden: (compound !== 'CO')
             }, {
                 label: 'O3',
                 data: rawData.map(el => el['O3']),
-                borderColor: 'purple',
+                borderColor: '#82c09a',
+                pointBackgroundColor: '#82c09a',
                 fill: false,
                 hidden: (compound !== 'O3')
             }, {
                 label: 'NO2',
                 data: rawData.map(el => el['NO2']),
-                borderColor: 'green',
+                borderColor: '#e57a44',
+                pointBackgroundColor: '#e57a44',
                 fill: false,
                 hidden: (compound !== 'NO2')
             }, 
             {
                 label: 'SO2',
                 data: rawData.map(el => el['SO2']),
-                borderColor: 'yellow',
+                borderColor: '#fcb97d',
+                pointBackgroundColor: '#fcb97d',
                 fill: false,
                 hidden: (compound !== 'SO2')
             }, {
                 label: 'PM10',
                 data: rawData.map(el => el['PM10']),
-                borderColor: 'red',
+                borderColor: '#6689a1',
+                pointBackgroundColor: '#6689a1',
                 fill: false,
                 hidden: (compound !== 'PM10')
             }
@@ -62,7 +67,20 @@ const SearchResults = (props) => {
                 data={chartData(results)}
                 width={600}
                 height={250}
-                options={{ showLines: false }}
+                options={{ 
+                    showLines: false, 
+                    title:{
+                        display: true,
+                        position:'top',
+                        fontSize: 20,
+                        text: 'Results',
+                    },
+                    legend: {
+                        display: true,
+                        position: 'right',
+                        fullWidth: false
+                    } 
+                }}
             />}
         </>
     );
