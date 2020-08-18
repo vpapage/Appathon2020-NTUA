@@ -12,7 +12,7 @@ var mongoose = require('mongoose'),
             if (error)
                 response.send(error);
             response.json(getStation);
-        }).limit(10);
+        }).limit(720);
     };
     
     
@@ -33,12 +33,19 @@ exports.getAllItems = (req, res) => {
     });
 };
 
+// test queries: 
 exports.getAnything = (req, res) => {
-    measurementResults.find({ MeasurementDate: { $regex: ".*"+req.params.month+".*", $options: 'm'} ,"Station code": req.params.Stationcode},"MeasurementDate SO2 NO2 O3 CO PM10" , function (err, allStations) {
+    measurementResults.find(
+        { 
+            "Station code": req.params.StationCode,
+            MeasurementDate: { $regex: `.*${req.params.month}.*18:00`, $options: 'm'}
+        },
+        "MeasurementDate StationCode SO2 NO2 O3 CO PM10" , 
+        function (err, allStations) {
         if (err)
             res.send(err);
         res.json(allStations);
-    });
+    }).sort({'MeasurementDate': 1}).limit(720);
 };
 
 
