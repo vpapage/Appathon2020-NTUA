@@ -1,20 +1,19 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import MainForm from './components/MainForm';
+import Homepage from './components/Homepage';
 
 function App() {
 
     return (
-        <div>
-            {/* <h1> Air Pollution in Seoul </h1>
-            <h3> 
-                This web application deals with air pollution measurement information <br/> 
-                in Seoul, South Korea. 
-                You can choose one of the stations (101 to 125) <br/> where the measurements are made and a chemical compound.
-            </h3> */}
-            <MainForm />
-        </div>
-
+        <>
+            <Switch>
+                <Route path="/" component={Homepage} exact />
+                <Route path="/home" component={Homepage} />
+                <Route path="/search" component={MainForm} />
+            </Switch>
+        </>
     );
 
 }
