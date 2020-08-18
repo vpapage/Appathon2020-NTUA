@@ -44,7 +44,7 @@ function MainForm() {
 
     return (
         <>
-            <h2>Insert filters</h2>
+            <h2 className="main-form-title">Insert filters</h2>
             <form onSubmit={submitSearchForm} className="search-form" >
 
                 <div className="form-group">
