@@ -71,8 +71,10 @@ function MainForm() {
                         }}>
                         <option value="000">Select Item</option>
                         {allItems &&
-                            allItems.map(item =>
-                                <option key={item.ItemCode} value={item.ItemName}>{item.ItemName}</option>)
+                            allItems.map(item => {
+                                if (item.ItemName != 'PM2.5')
+                                return (<option key={item.ItemCode} value={item.ItemName}>{item.ItemName}</option>);
+                            })
                         }
                     </select>
                 </div>
