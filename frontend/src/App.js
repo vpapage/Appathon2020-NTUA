@@ -1,7 +1,6 @@
 import React from 'react';
-// import './App.css';
 
-import MainForm from './components/main-form';
+import MainForm from './components/MainForm';
 
 function App() {
 

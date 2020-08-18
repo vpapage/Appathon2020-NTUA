@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SearchResults from './search-results';
+import SearchResults from './SearchResults';
 
 function MainForm() {
 
