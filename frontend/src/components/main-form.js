@@ -8,7 +8,7 @@ function MainForm() {
     const [searchResults, setSearchResults] = useState();
     const [allStations, setAllStations] = useState();
     const [allItems, setAllItems] = useState();
-    // const [monthId, setMonthId] = useState();
+    const [month, setMonth] = useState('');
 
 
     useEffect(() => {
@@ -75,21 +75,16 @@ function MainForm() {
                         }
                     </select>
                 </div>
-                {/*  
                 <div className="form-group">
-                    <label htmlFor="month-input">Month</label>
-                    <select
-                        className="form-input" id="month-input" type="text"
-                        name={monthId}
-                        onChange={event => { setMonthId(event.target.value)} }>
-                        <option value="000">Select Month</option>
-                        {allStations &&
-                            allStations.map(station =>
-                                <option key={station.StationCode} value={station.StationCode}>{station.StationDistrict} ({station.StationCode})</option>)
-                        }
-                    </select>
+                    <label htmlFor="date-input">Month</label>
+                    <input type="month" id="date-input" className="form-input"
+                        min="2017-01" max="2018-12" 
+                        value={month} 
+                        onChange={event => { 
+                            setMonth(event.target.value);
+                            console.log(event.target.value);
+                        }}/>
                 </div>
-                 */}
 
 
                 <button className="submit-button" type="submit">Submit</button>
