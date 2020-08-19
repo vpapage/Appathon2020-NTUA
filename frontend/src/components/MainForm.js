@@ -48,7 +48,7 @@ function MainForm() {
             <form onSubmit={submitSearchForm} className="search-form" >
 
                 <div className="form-group">
-                    <label htmlFor="station-input">Station</label>
+                    <label htmlFor="station-input">Research Station</label>
                     <select
                         className="form-input" id="station-input" type="text"
                         name={stationId}

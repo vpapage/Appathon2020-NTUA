@@ -13,7 +13,7 @@ code {
 
 body {
     /* background-image: url("https://pixabay.com/photos/industry-sunrise-air-pollution-1752876/"); */
-    background-image: linear-gradient(135deg, #f5f7fa 0%,#dcf6f9 100%);
+    background-image: linear-gradient(135deg, #f5f7fa 0%,#f9eab4 100%);
     color: #181f25;
 }
 
@@ -21,7 +21,7 @@ body {
 
 .homepage-try {
 
-    background: #dcf6f9;
+    background: #FDFAEC;
     position: relative;
     padding: 100px;
     text-align: center;
@@ -31,7 +31,7 @@ body {
     left: 25%;
     padding: 10px;
     border-style: groove;
-    border-color: #e8d9e2;
+    border-color: #B4A6AB;
       
 }
 

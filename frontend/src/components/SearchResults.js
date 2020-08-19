@@ -55,8 +55,8 @@ const SearchResults = (props) => {
             }, {
                 label: 'PM2(Mircrogram/m3)',
                 data: rawData.map(el => el['PM2']),
-                borderColor: '#e57a44',
-                pointBackgroundColor: '#e57a44',
+                borderColor: '#cc6668',
+                pointBackgroundColor: '#cc6668',
                 fill: false,
                 hidden: (compound !== 'PM2')
             }
