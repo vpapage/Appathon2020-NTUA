@@ -12,27 +12,35 @@ code {
 /* App.js */
 
 body {
-    /* background-image: url("https://pixabay.com/photos/industry-sunrise-air-pollution-1752876/"); */
-    background-image: linear-gradient(135deg, #f5f7fa 0%,#f9eab4 100%);
+     background-image: linear-gradient(135deg, #f5f7fa 0%,#f9eab4 100%); 
     color: #181f25;
 }
 
 /* Homepage style*/
 
-.homepage-try {
+.homepage-background{
 
-    background: #FDFAEC;
-    position: relative;
+    background-image: url("industry.png");
+    height: 750px; /* You must set a specified height */
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.homepage-title-block{
+    color: #5c384d;
+    background-color: rgb(245, 224, 192);
+    opacity: 0.9;
+    position: absolute;
+    left: 100px;
+    top: 130px;
     padding: 100px;
     text-align: center;
-    margin: auto;
     width: 50%;
-    margin: 30px 0 0 0px;
     left: 25%;
     padding: 10px;
     border-style: groove;
     border-color: #B4A6AB;
-      
 }
 
 .homepage-title, .homepage-subtitle {
@@ -56,6 +64,12 @@ body {
 
 
 /* MainForm style */
+
+.results-page{
+    background-image: linear-gradient(135deg, #f5f7fa 0%,#f9eab4 100%);
+}
+
+
 .main-form-title {
     text-align: center;
 }

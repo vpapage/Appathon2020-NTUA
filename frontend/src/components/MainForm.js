@@ -43,7 +43,7 @@ function MainForm() {
     }
 
     return (
-        <>
+        <div className="results-page"> 
             <h2 className="main-form-title">Insert filters</h2>
             <form onSubmit={submitSearchForm} className="search-form" >
 
@@ -92,7 +92,7 @@ function MainForm() {
 
             {(searchResults && itemId) && 
                 <SearchResults results={searchResults} compound={itemId} />}
-        </>
+        </div>
 
     );
 
