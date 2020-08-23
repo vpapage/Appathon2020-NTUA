@@ -2,6 +2,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+// Περιέχει για κάθε σταθμό όλα τα αποτελέσματα από τις μετρήσεις που έγιναν. 
+ 
 var measurementResultsSchema = new Schema ({
   
     MeasurementDate: String,
