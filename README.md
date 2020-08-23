@@ -7,7 +7,7 @@
 Η βάση δεδομένων έχει γίνει με την mongoDB και το περιβάλλον που προσφέρει ("Compass").
 Ενώ οι πληροφορίες που περιέχει είναι από το site: 
 
-`https://www.kaggle.com/bappekim/air-pollution-in-seoul`
+https://www.kaggle.com/bappekim/air-pollution-in-seoul
 
 Για το Backend χρειάστηκε να κατεβάσουμε το nodeJS και το npm. 
 Καθώς επίσης και τις βιβλιοθήκες Express (για τον server του api) και mongoose (για τη σύνδεση με τη βάση)
@@ -17,11 +17,11 @@
 ### Οδηγίες εγκατάστασης
 1) Εγκαθιστούμε τη <b>mongoDB</b> από τον ακόλουθο σύνδεσμο: 
 
-    `https://www.mongodb.com/try/download/community`
+    https://www.mongodb.com/try/download/community
   
 2) Εγκαθιστούμε το <b>node js</b> από τον ακόλουθο σύνδεσμο: 
 
-    `https://nodejs.org/en/download/`
+    https://nodejs.org/en/download/
 
 3) Κάνουμε clone το project στον υπολογιστή μας:
 
@@ -48,4 +48,4 @@
 
 ### Παρουσίαση της εφαρμογής σε μορφή video
 
-`https://www.youtube.com/watch?v=DmCVT9100u8`
+https://www.youtube.com/watch?v=DmCVT9100u8
